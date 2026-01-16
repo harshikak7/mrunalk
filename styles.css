@@ -11,6 +11,20 @@
   --blue: #36529E;
 }
 
+
+/* --------------------
+   DARK MODE
+--------------------- */
+body.dark {
+  --bg: #0F0F10;
+  --text: #F2F2F2;
+  --muted: #9A9A9A;
+
+  --yellow: #FFCC00; /* keep accent same */
+  --green: #34C759;
+  --blue: #7AA2FF;
+}
+
 /* --------------------
    GLOBAL RESET
 --------------------- */
@@ -26,6 +40,19 @@ body {
   color: var(--text);
 }
 
+
+
+/* Navbar dark mode */
+body.dark .navbar {
+  background: rgba(15, 15, 16, 0.7);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Navbar dark mode (scrolled) */
+body.dark .navbar.scrolled {
+  background: rgba(15, 15, 16, 0.9);
+}
+
 /* --------------------
    NAVBAR
 --------------------- */
@@ -33,12 +60,18 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
-   background-color: var(--bg); 
+  
   margin: 0 20px auto;
   padding: 24px 20px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  
+background: rgba(251, 247, 239, 0.65); /* glass */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 /* Logo */
@@ -116,6 +149,7 @@ body {
   
   margin: 0 20px auto;
   padding: 80px 20px 30px;
+
 }
 
 .hero-content {
@@ -271,11 +305,16 @@ body {
 }
 
 .work-image {
+      transition: transform 0.45s ease;
   aspect-ratio: 16 / 10;
   overflow: hidden;
   border: 2px solid rgba(0, 0, 0, 0.10); /* subtle stroke */
 }
 
+
+.work-item:hover .work-image {
+  transform: perspective(1200px) rotateZ(2.5deg);
+}
 /* --------------------
    SCROLL REVEAL
 --------------------- */
@@ -547,5 +586,67 @@ padding: 20px;
     justify-content: space-between;
     align-items: center;
     gap: 12px;
-  }}
+  }
+}
 
+
+/* ============================
+   DARK MODE READABILITY FIXES
+   (ADDED ONLY – nothing changed)
+============================ */
+
+/* Body text */
+body.dark {
+  color: #F2F2F2;
+}
+
+/* Muted text (years, meta) */
+body.dark .year,
+body.dark .current,
+body.dark .section-desc {
+  color: #A8A8A8;
+}
+
+/* Descriptions were #444 → too dark */
+body.dark .description {
+  color: #CFCFCF;
+}
+
+/* Headings */
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark .section-heading {
+  color: #FFFFFF;
+}
+
+/* Links */
+body.dark a {
+  color: var(--text);
+}
+
+/* Company / accent links */
+body.dark .company {
+  color: var(--blue);
+}
+
+/* Navbar links */
+body.dark .nav-right a {
+  color: #F2F2F2;
+}
+
+/* Illustration section heading override */
+body.dark .section-heading {
+  color: #FFFFFF;
+}
+
+/* Footer text */
+body.dark .footer-credit,
+body.dark .footer-email {
+  color: #BDBDBD;
+}
+
+/* Footer email hover */
+body.dark .footer-email:hover {
+  color: #FFFFFF;
+}

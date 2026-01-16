@@ -1,11 +1,6 @@
-const toggleBtn = document.querySelector(".theme-toggle");
-
-toggleBtn.addEventListener("click", () => {
-  // Dark mode will be added later
-  alert("Dark mode coming next 👀");
-});
-
-
+/* --------------------
+   SCROLL REVEAL
+--------------------- */
 const reveals = document.querySelectorAll(".reveal");
 
 const observer = new IntersectionObserver(
@@ -17,15 +12,15 @@ const observer = new IntersectionObserver(
       }
     });
   },
-  {
-    threshold: 0.2
-  }
+  { threshold: 0.2 }
 );
 
-reveals.forEach(reveal => {
-  observer.observe(reveal);
-});
+reveals.forEach(reveal => observer.observe(reveal));
 
+
+/* --------------------
+   SCROLL TO TOP
+--------------------- */
 const scrollTopBtn = document.querySelector(".scroll-top");
 
 scrollTopBtn.addEventListener("click", () => {
@@ -34,16 +29,17 @@ scrollTopBtn.addEventListener("click", () => {
     behavior: "smooth"
   });
 });
-const hamburger = document.querySelector(".hamburger");
-const navRight = document.querySelector(".nav-right");
-
-hamburger.addEventListener("click", () => {
-  navRight.classList.toggle("open");
-});
 
 
-document.querySelectorAll(".nav-right a").forEach(link => {
-  link.addEventListener("click", () => {
-    navRight.classList.remove("open");
-  });
+/* --------------------
+   DARK MODE TOGGLE
+--------------------- */
+const themeToggle = document.querySelector(".theme-toggle");
+
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+
+  themeToggle.textContent = document.body.classList.contains("dark")
+    ? "☀️"
+    : "🌙";
 });
