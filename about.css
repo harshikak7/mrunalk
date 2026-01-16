@@ -1,0 +1,152 @@
+/* ============================
+   ABOUT PAGE
+============================ */
+
+.about-section {
+  margin: 0 20px;
+  padding: 80px 20px 5px;
+}
+
+.about-grid {
+  max-width: 1400px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 180px;
+}
+
+/* LEFT TEXT */
+.about-text p {
+  font-size: 24px;
+  line-height: 1.6;
+  color: #222;
+  margin-bottom: 28px;
+}
+
+.about-text strong {
+  font-weight: 700;
+}
+
+/* RIGHT META */
+.about-meta h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.meta-block {
+  margin-bottom: 20px;
+}
+
+.meta-item {
+  margin-bottom: 16px;
+}
+
+.meta-item strong{
+    font-size: 22px;
+}
+.meta-year {
+  display: block;
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.meta-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+}
+
+.meta-block ul {
+  list-style: none;
+  padding: 0;
+}
+
+.meta-block li {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+/* Description text */
+.about-desc {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text);
+  max-width: 520px;
+}
+
+/* Inline description links */
+.desc-link {
+  color: var(--text);
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+/* Yellow underline on hover */
+/* Description text */
+.about-desc {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text);
+  max-width: 520px;
+}
+
+/* Inline description links */
+.desc-link {
+  color: var(--text);
+  font-weight: 600;       /* bold */
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 3px;
+}
+
+/* Hidden underline by default */
+.desc-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--yellow);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+/* Show underline ONLY on hover */
+.desc-link:hover::after {
+  width: 100%;
+}
+
+/* Prevent browser default colors */
+.desc-link:visited,
+.desc-link:hover,
+.desc-link:focus {
+  color: var(--text);
+}
+
+
+
+/* ============================
+   MOBILE ABOUT
+============================ */
+@media (max-width: 768px) {
+
+  .about-section {
+    padding: 40px 12px 80px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .about-text p {
+    font-size: 18px;
+  }
+
+  .meta-columns {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}

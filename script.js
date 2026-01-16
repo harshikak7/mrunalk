@@ -34,11 +34,16 @@ scrollTopBtn.addEventListener("click", () => {
     behavior: "smooth"
   });
 });
-
-
 const hamburger = document.querySelector(".hamburger");
 const navRight = document.querySelector(".nav-right");
 
 hamburger.addEventListener("click", () => {
   navRight.classList.toggle("open");
+});
+
+
+document.querySelectorAll(".nav-right a").forEach(link => {
+  link.addEventListener("click", () => {
+    navRight.classList.remove("open");
+  });
 });
