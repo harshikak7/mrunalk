@@ -30,22 +30,33 @@ body {
    NAVBAR
 --------------------- */
 .navbar {
-
   margin: 0 20px auto;
   padding: 24px 20px;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+/* Logo */
 .nav-left {
   font-family: "Rammetto One", cursive;
-  font-size: 28px;
+  font-size: 30px;
   font-weight: 400;
   letter-spacing: 0.5px;
 }
 
+.nav-left a {
+  text-decoration: none;
+  color: var(--text);
+}
+
+.nav-left a:visited,
+.nav-left a:hover,
+.nav-left a:focus {
+  color: var(--text);
+}
+
+/* Right nav */
 .nav-right {
   display: flex;
   align-items: center;
@@ -59,17 +70,30 @@ body {
   position: relative;
 }
 
-.nav-right a.active::after {
+/* Hover underline (ONLY on hover) */
+.nav-right a::after {
   content: "";
   position: absolute;
   left: 0;
   bottom: -6px;
-  width: 100%;
+  width: 0%;
   height: 3px;
   background-color: var(--yellow);
   border-radius: 2px;
+  transition: width 0.3s ease;
 }
 
+.nav-right a:hover::after {
+  width: 100%;
+}
+
+/* Prevent browser default colors */
+.nav-right a:visited,
+.nav-right a:active {
+  color: var(--text);
+}
+
+/* Theme toggle */
 .theme-toggle {
   background: #111;
   color: #fff;
@@ -87,7 +111,7 @@ body {
 .hero {
   
   margin: 0 20px auto;
-  padding: 80px 20px 120px;
+  padding: 80px 20px 30px;
 }
 
 .hero-content {
@@ -112,7 +136,7 @@ body {
 
 .hero h1 {
   font-size: clamp(28px, 4vw, 44px);
-  line-height: 1.4;
+  line-height: 1.2;
   font-weight: 400;
 }
 
@@ -121,9 +145,23 @@ body {
 }
 
 .current {
-  margin-top: 32px;
-  font-size: 16px;
+  margin-top: 20px;
+  font-size: 22px;
   color: var(--muted);
+}
+
+.current a{
+  text-decoration: none;
+  color: var(--text);
+}
+
+.current a:visited {
+  color: var(--text);
+}
+
+.current a:hover,
+.current a:focus {
+  color: var(--text);
 }
 
 .company {
@@ -161,7 +199,7 @@ body {
 
 /* Year */
 .year {
-  font-size: 14px;
+  font-size: 16px;
   color: #8a8a8a;
   display: block;
   margin-bottom: 12px;
@@ -170,20 +208,71 @@ body {
 /* Role + Company */
 .work-item h3 {
   font-family: "IBM Plex Sans", sans-serif;
-  font-size: 22px;
+  font-size: 28px;
   font-weight: 600;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
+
+.work-item h3 a{
+  text-decoration: none;
+   color: var(--text);
+   position: relative;
+  display: inline-block;
+}
+
+.work-item h3 a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 3px;
+  background-color: var(--yellow);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.work-item h3 a:hover::after {
+  width: 100%;
+}
+
+
+.work-item h3 a:visited {
+  color: var(--text);
+}
+
+.work-item h3 a:hover,
+.work-item h3 a:focus {
+  color: var(--text);
+}
+
 
 /* Description (Satoshi feel) */
 .description {
   font-family: "Satoshi", "IBM Plex Sans", sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.6;
   color: #444;
+  letter-spacing: 1px;
   max-width: 700px;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
+
+.description a{
+  text-decoration: none;
+  color: var(--text);
+}
+
+
+.description a:visited {
+  color: var(--text);
+}
+
+.description a:hover,
+.description a:focus {
+  color: var(--text);
+}
+
 .work-item:last-child {
   margin-bottom: 0;
 }
@@ -231,7 +320,7 @@ padding: 20px;
 .section-heading {
   display: inline-block;
   font-family: "IBM Plex Sans", sans-serif;
-  font-size: 22px;
+  font-size: 28px;
   font-weight: 600;
   color: #111;
   text-decoration: none;
@@ -259,8 +348,9 @@ padding: 20px;
 /* Description */
 .section-desc {
   font-family: "Satoshi", "IBM Plex Sans", sans-serif;
-  font-size: 15px;
+  font-size: 18px;
   color: #444;
+  letter-spacing: 1px;
   max-width: 520px;
   margin-bottom: 40px;
 }
@@ -316,6 +406,7 @@ padding: 20px;
 
 /* Main content */
 .footer-main h2 {
+  font-family: "IBM Plex Sans", sans-serif;
   font-size: clamp(28px, 4vw, 42px);
   line-height: 1.2;
   font-weight: 400;
@@ -323,14 +414,22 @@ padding: 20px;
 }
 
 .footer-main h2 strong {
-  font-weight: 700;
+  font-family: "Rammetto One", cursive;
+  font-weight: 400;
+  letter-spacing: 0.3px;
 }
 
-/* Email */
 .footer-email {
-  font-size: 16px;
+  font-size: 20px;
   color: var(--muted);
+  text-decoration: none;
+  border-bottom: 2px solid var(--yellow);
+  padding-bottom: 4px;
 }
+.footer-email:hover {
+  color:#202020;
+}
+
 
 /* Bottom row */
 .footer-bottom {
@@ -341,12 +440,29 @@ padding: 20px;
 }
 
 .footer-credit {
-  font-size: 14px;
+  font-size: 18px;
   color: var(--muted);
 }
 
+.footer-credit a{
+  text-decoration: none;
+  color: var(--blue);
+}
+
+.footer-credit a:visited {
+  color: var(--blue);
+}
+
+.footer-credit  a:hover,
+.footer-credit  a:focus {
+  color: var(--blue);
+}
+
+
+
 .footer-credit strong {
   color: var(--blue);
+  font-weight: 900;
 }
 
 /* Scroll to top button */
