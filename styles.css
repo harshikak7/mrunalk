@@ -129,8 +129,6 @@ background: rgba(251, 247, 239, 0.65); /* glass */
 .nav-right a:active {
   color: var(--text);
 }
-
-/* Theme toggle */
 .theme-toggle {
   background: #111;
   color: #fff;
@@ -139,8 +137,16 @@ background: rgba(251, 247, 239, 0.65); /* glass */
   height: 34px;
   border-radius: 50%;
   cursor: pointer;
-  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.theme-icon {
+  width: 16px;
+  height: 16px;
+}
+
 
 /* --------------------
    HERO SECTION
@@ -313,7 +319,7 @@ background: rgba(251, 247, 239, 0.65); /* glass */
 
 
 .work-item:hover .work-image {
-  transform: perspective(1200px) rotateZ(2.5deg);
+ transform: perspective(1200px) rotateZ(2.5deg) translateY(-4px);
 }
 /* --------------------
    SCROLL REVEAL
@@ -388,6 +394,7 @@ padding: 20px;
 
 /* Card */
 .illustration-card {
+    
   display: block;
   border-radius: 6px;
   overflow: hidden;
@@ -403,6 +410,7 @@ padding: 20px;
 /* Subtle hover */
 .illustration-card:hover {
   transform: translateY(-4px);
+   transform: perspective(1200px) rotateZ(2.5deg) translateY(-4px);
 }
 
 /* =====================================================
@@ -472,24 +480,54 @@ padding: 20px;
 }
 
 /* Scroll to top button */
+/* ============================
+   SCROLL TO TOP (FIXED)
+============================ */
 .scroll-top {
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background: #111;
-  color: #fff;
+  background: var(--text);
   border: none;
   cursor: pointer;
-  font-size: 18px;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+
+  position: relative; /* REQUIRED */
 }
 
+/* caret icon */
+.scroll-top::before {
+  content: "";
+  position: absolute;
+
+  /* exact centering */
+  top: 50%;
+  left: 50%;
+
+  width: 12px;
+  height: 12px;
+
+  border-left: 3px solid var(--bg);
+  border-top: 3px solid var(--bg);
+
+  transform: translate(-50%, -45%) rotate(45deg);
+  /* -45% is intentional → optical centering */
+}
+
+
+/* hover */
 .scroll-top:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
+  transform: translateY(-3px);
 }
 
+/* ---------- DARK MODE FIX ---------- */
+body.dark .scroll-top {
+  background: #ffffff;
+}
 
+body.dark .scroll-top::before {
+  border-left-color: #0f0f10;
+  border-top-color: #0f0f10;
+}
 
 
 /* ============================
@@ -521,7 +559,7 @@ padding: 20px;
   }
 
   .nav-right a {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     white-space: nowrap;
   }
