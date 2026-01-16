@@ -462,19 +462,13 @@ padding: 20px;
   .work-section,
   .illustration-section,
   .footer {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding: 0 auto;
   }
 
   /* Navbar */
   .navbar {
     padding-top: 16px;
     padding-bottom: 16px;
-  }
-
-  /* Hide links (until hamburger exists) */
-  .nav-right a {
-    display: none;
   }
 
   /* Keep theme toggle visible */
@@ -524,5 +518,60 @@ padding: 20px;
     margin-top: 48px;
     flex-direction: column;
     gap: 20px;
+  }
+}
+
+
+/* --------------------
+   HAMBURGER (mobile only)
+--------------------- */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* hamburger lines */
+.hamburger span {
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  display: block;
+}
+
+/* --------------------
+   MOBILE NAV BEHAVIOR
+--------------------- */
+@media (max-width: 768px) {
+
+  /* hide normal links */
+  .nav-right a {
+    display: none;
+  }
+
+  /* show hamburger */
+  .hamburger {
+    display: flex;
+  }
+
+  /* when menu is open */
+  .nav-right.open a {
+    display: block;
+  }
+
+  .nav-right.open {
+    position: absolute;
+    top: 64px;
+    right: 16px;
+    background: var(--bg);
+    padding: 16px;
+    border-radius: 12px;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
   }
 }
