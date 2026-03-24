@@ -1,3 +1,15 @@
+const navbar = document.querySelector(".navbar");
+
+window.addEventListener("scroll", () => {
+
+  if (window.scrollY > 80) {
+    navbar.classList.add("compact");
+  } else {
+    navbar.classList.remove("compact");
+  }
+
+});
+
 /* --------------------
    SCROLL REVEAL
 --------------------- */
@@ -74,3 +86,27 @@ themeToggle.addEventListener("click", () => {
   /* If dark → sun | if light → moon */
   themeToggle.innerHTML = isDark ? sunIcon : moonIcon;
 });
+
+function updateTimezone() {
+
+  const now = new Date();
+
+  const offset = -now.getTimezoneOffset();
+
+  const hours = Math.floor(Math.abs(offset) / 60);
+  const minutes = Math.abs(offset) % 60;
+
+  const sign = offset >= 0 ? "+" : "-";
+
+  const formattedOffset =
+    "GMT" +
+    sign +
+    String(hours).padStart(2, "0") +
+    ":" +
+    String(minutes).padStart(2, "0");
+
+  document.getElementById("live-timezone").textContent =
+    "Mumbai (" + formattedOffset + ")";
+}
+
+updateTimezone();
