@@ -8,17 +8,14 @@ margin: 0 20px auto;
 padding: 80px 20px 40px;
 
 }
-
-
-
 .about-grid {
 
-max-width: 1200px;
+max-width: 1500px;
 
 display: grid;
-grid-template-columns: 1.4fr 1fr;
+grid-template-columns: 1.5fr 1fr;
 
-gap: 140px;
+gap: 100px;
 
 }
 
@@ -59,20 +56,18 @@ LEFT TEXT COLUMN
 
 .about-text p {
 
-font-family: "Roboto", sans-serif;
+font-family: "Urbanist", sans-serif;
 
-font-size: 26px;
-line-height: 1.75;
+font-size: 22px;
+line-height: 1.7;
 
-max-width: 700px;
+max-width: 800px;
 
 color: var(--text);
 
 margin-bottom: 26px;
 
 }
-
-
 
 .about-text strong {
 
@@ -229,13 +224,71 @@ object-fit: contain;
 
 }
 
+.back-arrow {
 
+position: absolute;
 
+top: 100px;
+left: 40px;
+
+font-family: "Urbanist", sans-serif;
+font-size: 16px;
+
+color: var(--muted);
+
+text-decoration: none;
+
+transition: color .2s ease;
+
+}
+
+.back-arrow:hover {
+
+color: var(--text);
+
+}
+
+.footer {
+
+margin: 0 20px auto;
+padding: 80px 20px 30px;
+
+}
 /* ============================
 MOBILE
 ============================ */
 
 @media(max-width:768px){
+.navbar,
+.hero,
+.work-section,
+.illustration-section,
+.footer{
+
+margin:0;
+padding-left:16px;
+padding-right:16px;
+
+}
+
+
+.about-section,
+.footer{
+
+margin:0;
+
+padding-left:16px;
+padding-right:16px;
+
+}
+
+
+.back-arrow{
+
+left:16px;
+top:70px;
+
+}
 
 .about-grid{
 
@@ -258,3 +311,68 @@ grid-template-columns:1fr;
 }
 
 }
+
+@media (max-width:768px){
+
+.nav-right{
+
+position: fixed;
+
+top: 14px;
+
+left: 50%;
+
+transform: translateX(-50%);
+
+right: auto;
+
+width: max-content;
+
+display: flex;
+
+align-items: center;
+
+gap: 22px;
+
+padding: 8px 18px;
+
+border-radius: 999px;
+
+/* light mode blur */
+background: rgba(251,247,239,.92);
+
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+
+border: 1px solid rgba(0,0,0,.06);
+
+}
+
+/* dark mode blur */
+
+body.dark .nav-right{
+
+background: rgba(15,15,16,.82);
+
+border: 1px solid rgba(255,255,255,.08);
+
+}
+
+}
+
+.footer-bottom{
+
+display: flex;
+
+flex-direction: row;
+
+align-items: center;
+
+justify-content: space-between;
+
+gap: 12px;
+
+margin-top: 48px;
+
+}
+
