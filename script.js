@@ -35,13 +35,11 @@ reveals.forEach(reveal => observer.observe(reveal));
 --------------------- */
 const scrollTopBtn = document.querySelector(".scroll-top");
 
-scrollTopBtn.addEventListener("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
+if (scrollTopBtn) {
+  scrollTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
-});
-
+}
 
 /* --------------------
    DARK MODE TOGGLE (FINAL)
