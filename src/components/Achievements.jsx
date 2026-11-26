@@ -7,7 +7,20 @@ export default function Achievements() {
       <h2 className="flex justify-end border-b border-line px-[9px] py-2.5 text-lg">{label}</h2>
       {items.map((item) => (
         <div key={item.name} className="flex flex-col gap-[3px] text-right">
-          <p className="font-serif text-xl">{item.name}</p>
+          <p className="font-serif text-xl">
+            {item.href ? (
+              <a
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline-offset-4 hover:underline"
+              >
+                {item.name}
+              </a>
+            ) : (
+              item.name
+            )}
+          </p>
           <p className="flex justify-between gap-4 text-base text-text-muted">
             <span>{item.year}</span>
             <span>{item.org}</span>

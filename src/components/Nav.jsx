@@ -27,7 +27,7 @@ export default function Nav() {
         ))}
       </nav>
 
-      <div className="flex h-nav items-center justify-end bg-nav-fill px-6 backdrop-blur-[30px] border-b border-line">
+      <div className="flex h-nav items-center justify-start bg-nav-fill px-[18px] backdrop-blur-[30px] border-b border-line">
         <TimeChip />
       </div>
     </header>

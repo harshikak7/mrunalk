@@ -4,7 +4,7 @@
 function SideColumn({ top, bottom, className = '' }) {
   return (
     <aside
-      className={`flex flex-col px-[18px] md:sticky md:top-0 md:h-screen md:justify-between md:self-start md:px-[22px] md:pt-[160px] md:pb-[21px] ${className}`}
+      className={`flex flex-col px-[18px] md:sticky md:top-0 md:h-screen md:justify-between md:self-start md:px-[22px] md:pt-[130px] md:pb-[21px] ${className}`}
     >
       {top && <div>{top}</div>}
       {bottom && <div>{bottom}</div>}
@@ -16,7 +16,7 @@ export default function Layout({ left = {}, right = {}, mobileEnd, children }) {
   return (
     <div className="relative z-10 min-h-screen md:grid md:grid-cols-site">
       <SideColumn top={left.top} bottom={left.bottom} className="gap-[93px] pt-[159px]" />
-      <main className="border-line pt-[82px] md:min-h-screen md:border-x md:pt-[160px] md:pb-[21px]">
+      <main className="border-line pt-[82px] md:min-h-screen md:border-x md:pt-[130px] md:pb-[21px]">
         {children}
       </main>
       <SideColumn top={right.top} bottom={right.bottom} className="gap-[107px] pt-[92px]" />

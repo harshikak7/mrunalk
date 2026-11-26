@@ -17,7 +17,7 @@ export default function TimeChip({ className = '' }) {
   }, [])
 
   return (
-    <p className={`text-xl text-text-secondary ${className}`}>
+    <p className={`text-xl text-text ${className}`}>
       {city}
       {separator}
       <time dateTime={now.toISOString()}>{formatTime(now, timeZone)}</time>

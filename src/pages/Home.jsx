@@ -34,7 +34,7 @@ export default function Home() {
         mobileEnd={<FooterCredit />}
       >
         <div className="flex flex-col gap-[87px] md:gap-[150px]">
-          <p className="mx-auto w-full px-[18px] text-[22px] md:max-w-[602px] md:px-0 md:py-2.5 md:text-2xl">
+          <p className="mx-auto w-full px-[18px] text-[22px] md:max-w-[602px] md:px-0 md:text-2xl">
             {site.intro.primary}{' '}
             <span className="text-text-secondary">{site.intro.secondary}</span>
           </p>

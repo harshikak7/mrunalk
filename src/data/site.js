@@ -43,7 +43,15 @@ export const site = {
     },
     achievements: {
       label: 'Achievements',
-      items: [{ name: 'UIUX Ninja', year: '2024', org: 'Simutomy Medtech Pvt Ltd' }],
+      items: [
+        {
+          name: 'UIUX Ninja',
+          year: '2024',
+          org: 'Simutomy Medtech Pvt Ltd',
+          // TODO: paste the Google Drive certificate link
+          href: 'https://drive.google.com/PLACEHOLDER',
+        },
+      ],
     },
   },
 

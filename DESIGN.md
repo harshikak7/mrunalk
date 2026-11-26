@@ -41,7 +41,7 @@ Rules: one component per file; no hardcoded hex values (use theme tokens); all t
 | `--line-on-light` | `#010101` at 20% | Divider on the white (hovered) marquee |
 | nav cell fill | `#202020` at 10-20% + backdrop blur | Glass look |
 
-**Grain texture:** the page background is `#101010` with a procedural grain on top at **30% opacity**. No image file: `<Grain />` generates a small tiling SVG noise (`feTurbulence`, desaturated) as an inline data URI. Implement as one fixed, full-screen layer: `position: fixed; inset: 0; pointer-events: none; opacity: .3; background-repeat: repeat; z-index` above the background and below content.
+**Grain texture:** the page background is `#101010` with a subtle, darkened procedural grain on top at **12% opacity**. No image file: `<Grain />` generates a small tiling SVG noise (`feTurbulence`, desaturated) as an inline data URI. Implement as one fixed, full-screen layer: `position: fixed; inset: 0; pointer-events: none; opacity: .12; background-repeat: repeat; z-index` above the background and below content.
 
 **Fonts** (Google Fonts, load via CSS, `font-display: swap`):
 - Source Serif 4: headings. SemiBold 60/64 (hero), SemiBold 40 (CTA), Regular 24 (section titles), Regular 20 (achievement name), SemiBold 20 (footer name).
@@ -59,7 +59,7 @@ No border radius except the logo (fully round). No shadows.
 Three columns split by 1px `--line` vertical dividers: **Left 400 / Center 639 / Right 401**.
 
 - **Only the center column scrolls.** Left and right columns are static (`position: sticky` / fixed to the viewport with their content pinned top and bottom). The page scrolls through the center column only.
-- Each side column: content pinned to the top and to the bottom, empty space between. 160px top offset for main content below the 60px nav bar.
+- Each side column: content pinned to the top and to the bottom, empty space between. 130px top offset (from the page top) for the first row in all three columns, aligned on the same top line.
 - Nav bar (60px) spans all three columns and stays fixed at the top.
 
 ### Mobile
