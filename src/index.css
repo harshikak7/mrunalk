@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme static {
+  /* Colors */
+  --color-bg: #101010;
+  --color-text: #fcfcfc;
+  --color-text-muted: rgba(252, 252, 252, 0.6);
+  --color-text-secondary: #8a8a8a;
+  --color-text-on-light: #010101;
+  --color-line: rgba(252, 252, 252, 0.2);
+  --color-accent: #34c759;
+  --color-line-on-light: rgba(1, 1, 1, 0.2);
+  --color-spotlight: rgba(252, 252, 252, 0.08);
+  --color-nav-fill: rgb(32 32 32 / 0.1);
+  --color-nav-cell: rgb(32 32 32 / 0.2);
+  --color-surface: #202020;
+  --color-line-subtle: rgb(255 255 255 / 0.1);
+  --color-white-bg: #fffaf2;
+
+  /* Fonts */
+  --font-serif: "Source Serif 4", Georgia, serif;
+  --font-sans: "Source Sans 3", system-ui, sans-serif;
+
+  /* Letter-spacing */
+  --tracking-base: 1px;
+  --tracking-wide: 2px;
+
+  /* Layout */
+  --spacing-nav: 60px;
+  --spacing-nav-hover: 86px;
+  --spacing-col-left: 400px;
+  --spacing-col-center: 639px;
+  --spacing-col-right: 401px;
+  --breakpoint-md: 768px;
+}
+
+/* Shared 3-column desktop grid (400 / 639 / 401 at 1440) */
+@utility grid-cols-site {
+  grid-template-columns: minmax(0, 400fr) minmax(0, 639fr) minmax(0, 401fr);
+}
+
+@layer base {
+  html {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    letter-spacing: var(--tracking-base);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+  }
+
+  :focus-visible {
+    outline: 1px solid var(--color-text);
+    outline-offset: 2px;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
