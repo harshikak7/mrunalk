@@ -18,7 +18,6 @@ export const site = {
   selectedWorksTitle: 'Selected Works',
 
   nav: [
-    // TODO: paste the Google Drive share link for the resume
     { label: 'Resume', href: 'https://drive.google.com/file/d/1mKj_v8kKyfojgO9_s4tcTa1zWlXXbgPX/view?usp=drive_link', external: true },
     { label: 'About', href: '/about' },
     { label: 'Behance', href: 'https://www.behance.net/kmrunal', external: true },
@@ -30,7 +29,6 @@ export const site = {
   marquee: ['Available for Work!', "Let's Connect!"],
 
   footer: {
-    // Rows: role tags are plain text; only the email is a link.
     rows: [
       { label: 'UI/UX Design' },
       { label: 'Product Design' },
@@ -48,8 +46,7 @@ export const site = {
           name: 'UIUX Ninja',
           year: '2024',
           org: 'Simutomy Medtech Pvt Ltd',
-          // TODO: paste the Google Drive certificate link
-          href: 'https://drive.google.com/PLACEHOLDER',
+          href: 'https://drive.google.com/file/d/1tNw_UTbqoebXivhqGPw-3mJaXE9aW_HK/view?usp=drive_link',
         },
       ],
     },

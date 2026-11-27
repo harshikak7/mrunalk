@@ -13,7 +13,7 @@ export default function Achievements() {
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline-offset-4 hover:underline"
+                className="link-hover underline-offset-4 hover:underline"
               >
                 {item.name}
               </a>

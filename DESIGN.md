@@ -19,8 +19,6 @@ src/
   pages/           # Home.jsx, About.jsx, CaseStudy.jsx (stub), NotFound.jsx
   data/            # site.js, projects.js
   lib/             # assets.js (auto asset loader), time.js
-public/
-  favicon.svg
 ```
 
 Rules: one component per file; no hardcoded hex values (use theme tokens); all text content lives in `src/data`, not inside components; respect `prefers-reduced-motion`.
@@ -39,6 +37,7 @@ Rules: one component per file; no hardcoded hex values (use theme tokens); all t
 | `--line` | `#FCFCFC` at 20% | Every 1px border and divider |
 | `--accent` | `#34C759` | Status dot and text |
 | `--line-on-light` | `#010101` at 20% | Divider on the white (hovered) marquee |
+| `--link-hover` (`--color-link-hover`) | `#FFCC00` | Hover/focus color of active text links |
 | nav cell fill | `#202020` at 10-20% + backdrop blur | Glass look |
 
 **Grain texture:** the page background is `#101010` with a subtle, darkened procedural grain on top at **12% opacity**. No image file: `<Grain />` generates a small tiling SVG noise (`feTurbulence`, desaturated) as an inline data URI. Implement as one fixed, full-screen layer: `position: fixed; inset: 0; pointer-events: none; opacity: .12; background-repeat: repeat; z-index` above the background and below content.
@@ -184,7 +183,27 @@ Same on Home and About. Desktop: left column has the three quick-link rows (1px 
 
 ---
 
-## 9. Quality bar (check before saying done)
+## 9. Links, favicon, stickers
+
+### Favicon and title
+- Favicon: `src/assets/logo.png` via `<link rel="icon" type="image/png" href="/src/assets/logo.png">` in `index.html` (Vite fingerprints it on build).
+- Page title: "Mrunal Kolekar | Product Designer".
+
+### Link hover color
+- Token `--color-link-hover: #FFCC00` (Tailwind: `text-link-hover`).
+- Every active text link turns this yellow on hover and keyboard focus (`:focus-visible`), ~200ms color transition. Use the `link-hover` utility in `src/index.css`.
+- Applies to: the footer email row, the "UIUX Ninja" achievement link (URL in `site.js`), the "Harshika" credit link, any underlined text link, and any "Download Resume" link.
+- "UI/UX Design" and "Product Design" stay plain-text tags (not links), so no hover color.
+- Does NOT apply to nav cells: they keep the white hover-down effect.
+
+### About stickers (rule, not built yet)
+- Each sticker is a white box: fixed height, width follows the logo, small padding, `overflow: hidden`, with a transparent logo image inside.
+- On hover, only the logo scales up (~1.08-1.12) inside the box with a smooth transition; the white box never changes size.
+- Desktop hover only (no effect on touch); respect reduced-motion.
+
+---
+
+## 10. Quality bar (check before saying done)
 
 - Matches the Figma frame at 1440 desktop and the mobile frame at ~390.
 - Side columns stay fixed while the center scrolls (desktop).

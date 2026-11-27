@@ -8,7 +8,7 @@ export default function FooterRows() {
       {site.footer.rows.map((row) => (
         <li key={row.label}>
           {row.href ? (
-            <a href={row.href} className={`${rowClass} hover:text-text-muted`}>
+            <a href={row.href} className={`${rowClass} link-hover`}>
               {row.label}
             </a>
           ) : (

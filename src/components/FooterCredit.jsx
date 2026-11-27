@@ -9,7 +9,7 @@ export default function FooterCredit({ className = '' }) {
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="font-serif text-base font-semibold underline-offset-4 hover:underline md:text-xl"
+        className="link-hover font-serif text-base font-semibold underline-offset-4 hover:underline md:text-xl"
       >
         {name}
       </a>

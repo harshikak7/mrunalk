@@ -9,6 +9,7 @@
   --color-text-on-light: #010101;
   --color-line: rgba(252, 252, 252, 0.2);
   --color-accent: #34c759;
+  --color-link-hover: #ffcc00;
   --color-line-on-light: rgba(1, 1, 1, 0.2);
   --color-spotlight: rgba(252, 252, 252, 0.08);
   --color-nav-fill: rgb(32 32 32 / 0.1);
@@ -32,6 +33,15 @@
   --spacing-col-center: 639px;
   --spacing-col-right: 401px;
   --breakpoint-md: 768px;
+}
+
+/* Active text links: yellow on hover + keyboard focus (not nav cells) */
+@utility link-hover {
+  transition: color 200ms ease-out;
+  &:hover,
+  &:focus-visible {
+    color: var(--color-link-hover);
+  }
 }
 
 /* Shared 3-column desktop grid (400 / 639 / 401 at 1440) */
