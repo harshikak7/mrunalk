@@ -181,6 +181,14 @@ Same on Home and About. Desktop: left column has the three quick-link rows (1px 
 - Includes the "Available for Work! | Let's Connect!" marquee and the footer, as on Home.
 - **Mobile:** layout is simplified versus desktop (not a straight copy). Follow the About mobile frame exactly.
 
+#### About page (built)
+Copy lives in `src/data/about.js` (intro, stats, roles, FAQ, sticker alt text). Center column, top to bottom: back arrow, intro, sticker scroller, Work Experience, FAQ, Marquee, credit. Left: "About Me!" + footer rows. Right: stats (Years of Experience, Projects Worked On) pinned top, Achievements pinned bottom.
+- **Back arrow** (not in Figma): `<BackButton />`, a 20px left arrow at the column padding with 28px clear space above the intro (desktop: lifted 19px above the 130px line so the intro stays on the 159px row; mobile: the intro moves down instead). `navigate(-1)`, or `/` when there is no history (`location.key === 'default'`). Muted by default, `--link-hover` on hover and keyboard focus, `aria-label="Go back"`. Shown on mobile too, above the intro.
+- **Sticker scroller:** `<StickerScroller />` loops the 5 `about-sticker-*` images right to left (GSAP, ~40px/s, two copies of the set). Each `<Sticker />` is a white, 60px-tall box sized by the logo; on hover only the logo scales to 1.1 (box fixed). The loop distance is the measured width of one set after all images load (logo widths vary). Desktop pointer only; static under reduced motion.
+- **FAQ accordion:** `<Faq />` / `<FaqItem />`. Buttons with `aria-expanded` and `aria-controls`; one item open at a time (clicking the open one closes it). The answer height animates with GSAP (~350ms), and the `add` (+) icon rotates out as the `close` (x) icon rotates in. Closed answers are `hidden`; instant under reduced motion. Answers are placeholders (TODO in `about.js`).
+- **Links:** "Download Resume →" uses the Drive resume link from `site.js` (new tab). Simutomy/Viscer are underlined and turn `--link-hover` on hover; their URLs are still TODO in `about.js`.
+- **Mobile:** stacked per the mobile frame: heading, footer rows, back arrow + intro, stickers, Work Experience (stacked rows), FAQ, status badge, Achievements, credit. No marquee and no stats on mobile.
+
 ---
 
 ## 9. Links, favicon, stickers
@@ -196,8 +204,10 @@ Same on Home and About. Desktop: left column has the three quick-link rows (1px 
 - "UI/UX Design" and "Product Design" stay plain-text tags (not links), so no hover color.
 - Does NOT apply to nav cells: they keep the white hover-down effect.
 
-### About stickers (rule, not built yet)
-- Each sticker is a white box: fixed height, width follows the logo, small padding, `overflow: hidden`, with a transparent logo image inside.
+### About stickers (built, see "About page" in section 8)
+- Each sticker is a white box: fixed 60px height, `width: auto` (no fixed width), 16px horizontal / 8px vertical padding, with a transparent logo image inside.
+- The logo is `height: 100%` (of the padded box), `width: auto`, `max-width: none`, `object-fit: contain`. Never `object-fit: cover` or a fixed width; every logo shows in full.
+- `overflow: hidden` only keeps the hover scale inside the box; the padding leaves room for the 1.1 scale. The scroller edge may cut a sticker as it passes.
 - On hover, only the logo scales up (~1.08-1.12) inside the box with a smooth transition; the white box never changes size.
 - Desktop hover only (no effect on touch); respect reduced-motion.
 
@@ -210,3 +220,4 @@ Same on Home and About. Desktop: left column has the three quick-link rows (1px 
 - No hardcoded colors, no console warnings about missing assets.
 - Smooth 60fps animation; reduced-motion respected.
 - Keyboard accessible links, visible focus states, alt text on images.
+- Pointer cursor: a global base rule in `src/index.css` gives `a`, `button`, `[role="button"]` and `summary` `cursor: pointer`; `:disabled` / `[aria-disabled="true"]` get `cursor: not-allowed`. Stickers are not links and keep the default cursor.
