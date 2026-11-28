@@ -1,12 +1,18 @@
 import { site } from './site'
 
 // All About page copy (verbatim from the About Figma frames).
-// Rich text is an array of segments: a plain string, or { text, href } for an underlined link.
+// Rich text is an array of segments: a plain string, { text, href } for an underlined link,
+// or { text } for underlined plain text (no link).
 
-// TODO: add the real URLs for these links (not in the Figma frame).
 const links = {
-  simutomy: { text: 'Simutomy', href: '' },
-  viscer: { text: 'Viscer', href: '' },
+  simutomy: { text: 'Simutomy', href: 'https://simutomy.com' },
+  viscer: { text: 'Viscer', href: 'https://viscer.co' },
+}
+
+// Same words, underlined as in the design but not links (Work Experience).
+const underlined = {
+  simutomy: { text: 'Simutomy' },
+  viscer: { text: 'Viscer' },
 }
 
 export const about = {
@@ -48,9 +54,9 @@ export const about = {
         period: '‘23 - 2026',
         description: [
           'Previously, I designed and lead product experiences at ',
-          links.simutomy,
+          underlined.simutomy,
           ', building ',
-          links.viscer,
+          underlined.viscer,
           ' a platform that enable nursing and medical students to practice and learn clinical procedures in VR.',
         ],
       },
